@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var mangoRouter = require('./routes/mango');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
+var Mango = require("./models/mango");
 
 var app = express();
 
@@ -43,5 +44,32 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+const connectionString = process.env.MONGO_CON
+
+mongoose = require('mongoose');
+mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true});
+
+// We can seed the collection if needed on server start
+async function recreateDB(){
+  // Delete everything
+  await Mango.deleteMany();
+ 
+ 
+  var results = [{"types":"Russet Pairi mango","expdate":'Red',"cost":20},
+                 {"types":"Red badami mango","expdate":'Yellow',"cost":25},
+                 {"types":"Petite chausa mango", "expdate":'White',"cost":15}]
+ 
+ for(i in results){
+  let instance = new Mango({types: results[i]["types"], colours: results[i]["colours"], cost:results[i]["cost"]});
+   instance.save( function(err,doc) {
+     if(err) return console.error(err);
+     console.log("object added.")
+     });
+ }
+ 
+ }
+ 
+ let reseed = true;
+ if (reseed) { recreateDB();}
 
 module.exports = app;
