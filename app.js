@@ -6,10 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var roseRouter = require('./routes/rose');
+varmangoRouter = require('./routesmango');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
-var Rose = require("./models/rose");
+var Mango = require("./modelsmango");
 var resourceRouter = require('./routes/resource');
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/rose', roseRouter);
+app.use('mango',mangoRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
@@ -53,15 +53,15 @@ mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: t
 // We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything
-  await Rose.deleteMany();
+  await Mango.deleteMany();
  
  
-  var results = [{"types":"Rosa Peace","colours":'Red',"cost":20},
-                 {"types":"New Year","colours":'Yellow',"cost":25},
-                 {"types":"Memorial Rose", "colours":'White',"cost":15}]
+  var results = [{"types":"benganpalli","colours":'red',"cost":20},
+                 {"types":"rasalu","colours":'Yellow',"cost":25},
+                 {"types":"sweet mangoes", "colours":'orange',"cost":15}]
  
  for(i in results){
-  let instance = new Rose({types: results[i]["types"], colours: results[i]["colours"], cost:results[i]["cost"]});
+  let instance = new Mango({types: results[i]["types"], colours: results[i]["colours"], cost:results[i]["cost"]});
    instance.save( function(err,doc) {
      if(err) return console.error(err);
      console.log("object added.")
