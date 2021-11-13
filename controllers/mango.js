@@ -52,10 +52,10 @@ exports.mango_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: Mango detail: ' + req.params.id);
 };
 // Handle Mango delete form on DELETE.
-exportsmango_delete = function(req, res) {
+exports.mango_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: Mango delete DELETE ' + req.params.id);
 };
 // Handle Mango update form on PUT.
-exportsmango_update_put = function(req, res) {
+exports.mango_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: Mango update PUT' + req.params.id);
 };
