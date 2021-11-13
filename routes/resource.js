@@ -11,7 +11,7 @@ router.get('/', api_controller.api);
 // POST request for creating amango.
 router.post('mango',mango_controller.ro_secreate_post);
 // DELETE request to deletemango.
-router.delete('/mangoss/:id',mango_controller.mango_delete);
+router.delete('/mango/:id',mango_controller.mango_delete);
 // PUT request to updatemango.
 router.put('mango/:id',mango_controller.mango_update_put);
 // GET request for onemango.
