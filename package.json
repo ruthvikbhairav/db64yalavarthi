@@ -1,5 +1,5 @@
 {
-  "name": "project.json",
+  "name": "fwb64yalavarthi",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,8 @@
     "pug": "^3.0.2"
   },
   "main": "app.js",
-  "author": "",
+  "author": "ruthvik",
   "license": "ISC",
+  "devDependencies": {},
   "description": ""
 }

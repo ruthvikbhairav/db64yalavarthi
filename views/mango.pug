@@ -2,16 +2,34 @@ extends layout
 
 block content
   h1= title
-  - var results = results
-  div(class="container-fuild")
-    div(class="row")
-      each result,index in results
-        div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
-          p #{result.types}
-          p #{result.colours}
-          p #{result.cost}
+  p Mango results
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let mattress = [
+                    {
+                        "type": "Russet Pairi mango",
+                        "expdate": "11/04/2021",
+                        "cost": 3.28
+                    },
+                    {
+                        "type": "Red badami mango",
+                        "expdate": "11/12/2021",
+                        "cost": 4.44
+                    },
+                    {
+                        "type": "Petite chausa mango",
+                        "expdate": "11/02/2021",
+                        "cost": 4.71
+                    },                   
+                ]
+            each v,index in mattress
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.type}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.expdate}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.cost}
 
-  script.
-    function buy(element){
-      alert(`You purchased item ${element+1}.`)
-    }
+                script.                
+                      function buy(intemNo)
+                      {
+                            alert(`you purchased Item ${intemNo+1}`)
+                      }

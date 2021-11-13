@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
-const newmangoSchema = mongoose.Schema({
-    types: String,
-    colours: String,
+const mangoSchema = mongoose.Schema({
+    type: String,
+    expdate: String,
     cost: Number
 })
 
-module.exports = mongoose.model("newmango", newmangoSchema)
+module.exports = mongoose.model("Mango", mangoSchema)

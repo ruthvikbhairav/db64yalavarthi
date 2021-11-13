@@ -1,6 +1,6 @@
 exports.api = function(req, res) { 
     res.write('['); 
-    res.write('{"resource":"mango", '); 
+    res.write('{"resource":"roses", '); 
     res.write('  "verbs":["GET","PUT", "DELETE"] '); 
     res.write('}'); 
     res.write(']') 
