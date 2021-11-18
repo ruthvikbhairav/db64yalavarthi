@@ -1,0 +1,22 @@
+extends layout
+block content
+    h1= title
+    if (toShow == null)
+h2 No instance to delete
+else
+    - let mangoid = toShow._id
+    - let mango_types  = toShow.mango_types
+    - let mangocolours = toShow.colours
+    - let mangocost = toShow.cost
+    divs.row
+        div(class='mangoAttr mr-3') Mango ID is:
+        div #{mangoid}
+    div.row
+        div(class='mangoAttr mr-3') Mango Type is:
+        div #{mango_types}
+    div.row
+        div(class='mangoAttr mr-3') Mango colours is:
+        div #{mangocolours}
+    div.row
+        div(class='mangoAttr mr-3') Mango Cost is:
+        div #{mangocost}

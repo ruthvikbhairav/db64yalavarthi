@@ -21,7 +21,8 @@ var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
-  // Delete everything await mango.deleteMany();
+  // Delete everything
+  await mango.deleteMany();
   let instance1 = new mango({types:"benganpalli", colours:"red", cost:20});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
