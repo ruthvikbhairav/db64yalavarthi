@@ -3,11 +3,11 @@ extends layout
 block content 
   h1= title 
   if (toShow == null)
-h2 No instance to delete
-else
+     h2 No instance to delete
+  else
  
   - let mangoid = toShow.id 
-  - let mangotypes = toShow.mangotypes 
+  - let mangotypes = toShow.types 
   - let mangocost = toShow.cost 
   - let mangocolours = toShow.colours 
    

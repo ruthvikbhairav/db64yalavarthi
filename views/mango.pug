@@ -1,6 +1,9 @@
 extends layout
 
 block content
+ - let create= `dispatch(\"mango/create\")`
+  button.btn( class="btn-warning ml-1", onclick= create) create
+
   h1= title
   
   p Search results mango  
@@ -10,8 +13,12 @@ block content
     div(class="row m-1") 
       each item in items  
         - let destination = `dispatch(\"/mango/update?id=${item._id}\")` 
+        - let detail = `dispatch(\"/mango/detail?id=${item._id}\")` 
+        - let dele = `dispatch(\"/mango/delete?id=${item._id}\")` 
         div(class="row-sm-2", class="m-1") Item #{item.types}(#{item.colours}) is #{item.cost} 
           button.btn( class="btn-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn-success ml-1", onclick= detail) Detail page
+          button.btn( class="btn-warning ml-1", onclick= dele) Delete
    
   script. 
     function dispatch(path){ 

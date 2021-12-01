@@ -1,7 +1,13 @@
 const mongoose = require("mongoose")
 const newmangoSchema = mongoose.Schema({
-    types: String,
-    colours: String,
+    types:{
+        type: String,
+        minLength: 6
+    }, 
+    colours: {
+        type: String,
+        minLength: 3
+    },
     cost: Number
 })
 
